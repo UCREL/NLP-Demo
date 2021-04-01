@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  science-parse:
+    image: ucrel/ucrel-science-parse:3.0.1
+    init: true
+    expose:
+      - "8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPUS}"
+          memory: "${MEMORY_LIMIT_MB}mb"
+  python:
+    build: 
+      args:
+        - USER_ID
+        - GROUP_ID
+      context: .
+    image: nlp_demo_pdf_to_text_python:0.0.1
+    command: ["--science-parse-server-url", "http://science-parse", "/usr/src/thesis_directory", "/usr/src/export_directory"]
+    volumes:
+      - "$PWD/../thesis_directory:/usr/src/thesis_directory"
+      - "$PWD/../export_directory:/usr/src/export_directory"
+    restart: on-failure
+    depends_on:
+      - science-parse
