@@ -39,6 +39,11 @@ Further when running the python container the [./docker-compose.yaml](./docker-c
 
 When running this script ensure that you are running the Science Parse server locally at the following address: `127.0.0.1:8080`, we suggest doing this through the following [docker image.](https://hub.docker.com/r/ucrel/ucrel-science-parse)
 
+Required arguments:
+
+1. **thesis_directory** -- Directory that contains the theses whereby all thesis are in PDF format, these theses will then be converted into text format and stored in the `export_directory`.
+2. **export_directory** -- Directory that either currently does not exist or a directory that does BUT not a file. This directory will store the converted theses in their text format.
+
 The [./extract_text_from_thesis.py](./extract_text_from_thesis.py) has various optional flags:
 
 1. **--science-parse-server-url** -- This allows a user to choose a different URL for the science parse server.
