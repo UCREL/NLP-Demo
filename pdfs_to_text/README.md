@@ -43,8 +43,8 @@ The [./extract_text_from_thesis.py](./extract_text_from_thesis.py) has various o
 
 1. **--science-parse-server-url** -- This allows a user to choose a different URL for the science parse server.
 2. **--science-parse-server-port** -- This allows a user to choose a different port for the science parse server.
-3. **debug** -- Instead of exporting the data it will give you various dataset statistics for the given thesis directory. See the `debug` function in [./extract_text_from_thesis.py](./extract_text_from_thesis.py).
-4. **--min-number-words** -- The minimum number of words, based on whitespace, that a thesis has to contain to be exported into the export directory. This is here so that thesis that may not have been parsed correctly by Science Parse are not exported. **default** is 1000.
+3. **--debug** -- Instead of exporting the data it will give you various dataset statistics for the given thesis directory. See the `debug` function in [./extract_text_from_thesis.py](./extract_text_from_thesis.py).
+4. **--min-number-words** -- The minimum number of words, based on whitespace, that a thesis has to contain to be exported into the export directory. This is here so that a thesis that may not have been parsed correctly by Science Parse is not exported. **default** is 1000.
 5. **--replace** -- Replace/overwrite data that already exists in the export directory. **By default** if an export file already exists then it does not overwrite it.
 
 ### Pre-Processing
