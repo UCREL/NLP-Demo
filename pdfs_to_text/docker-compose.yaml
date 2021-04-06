@@ -20,7 +20,7 @@ services:
     command: ["--science-parse-server-url", "http://science-parse", "/usr/src/thesis_directory", "/usr/src/export_directory"]
     volumes:
       - "$PWD/../thesis_directory:/usr/src/thesis_directory"
-      - "$PWD/../export_directory:/usr/src/export_directory"
+      - "$DOCKER_EXPORT_DIRECTORY:/usr/src/export_directory"
     restart: on-failure
     depends_on:
       - science-parse

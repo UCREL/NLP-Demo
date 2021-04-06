@@ -14,6 +14,8 @@ If successful you should see this line near the end of the log output:
 pdfs_to_text_python_1 exited with code 0
 ```
 
+The `build_and_run_docker` script creates the environment variable `DOCKER_EXPORT_DIRECTORY` that is used to define where the export directory is and also creates the export directory if it does not exist. By default the `DOCKER_EXPORT_DIRECTORY` variable is set to `$PWD/../export_directory`.
+
 For full details on the docker compose file see the [docker compose script section below](#docker-compose-script). 
 
 For details on the data that is logged see the [logged data sub-section of Extract text from thesis script section below.](#logged-data)
