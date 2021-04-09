@@ -1,3 +1,7 @@
 .vscode
 thesis_directory
 export_directory
+usas_tagging/usas_cache_directory
+usas_tagging/BncSampWr.sem.fql
+usas_tagging/BncSampWr.wrd.fql
+usas_tagging/sigeff/sigeff
