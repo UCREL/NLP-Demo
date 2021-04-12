@@ -1,7 +1,12 @@
 .vscode
 thesis_directory
 export_directory
-usas_tagging/usas_cache_directory
-usas_tagging/BncSampWr.sem.fql
-usas_tagging/BncSampWr.wrd.fql
-usas_tagging/sigeff/sigeff
+thesis_token_statistics.json
+thesis_usas_tag_statistics.json
+word_cloud_statistics/usas_cache_directory
+word_cloud_statistics/BncSampWr.sem.fql
+word_cloud_statistics/BncSampWr.wrd.fql
+word_cloud_statistics/sigeff/sigeff
+word_cloud_statistics/thesis_tags.json
+word_cloud_statistics/thesis_tokens.json
+word_cloud_statistics/semtags_subcategories_utf_8.txt

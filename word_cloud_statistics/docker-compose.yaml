@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  python:
+    build: 
+      args:
+        - USER_ID
+        - GROUP_ID
+      context: .
+    image: nlp_demo_token_tags_statistics:0.0.1
+    volumes:
+      - "$DOCKER_EXPORT_DIRECTORY:/usr/src/export_directory"
+      - "$TOKEN_STATISTICS_FILE:/usr/src/thesis_token_statistics.json"
+      - "$TAG_STATISTICS_FILE:/usr/src/thesis_usas_tag_statistics.json"
+      - "$USAS_CACHE_DIRECTORY:/usas_cache"
+    command: ["--remove-punctuation", "--remove-determiners", "--remove-stop-words", "--remove-digits", "--lower-case", "--USAS-tags-to-labels"]
