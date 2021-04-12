@@ -17,6 +17,5 @@ COPY --chown=python:python extract_text_from_thesis.py .
 COPY --chown=python:python wait_for_it.sh .
 RUN chmod 764 wait_for_it.sh
 COPY --chown=python:python requirements.txt .
-RUN ls -al
 RUN pip install -r requirements.txt
 ENTRYPOINT ["bash", "./wait_for_it.sh", "--host=science-parse", "--port=8080", "--timeout=120", "--strict", "--", "python", "extract_text_from_thesis.py"]
