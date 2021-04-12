@@ -5,8 +5,6 @@ ENV PATH="$PATH:/home/python/.local/bin"
 ARG USER_ID
 ARG GROUP_ID
 
-RUN echo $USER_ID
-
 RUN groupadd --gid $GROUP_ID python && useradd -r --create-home -g $GROUP_ID --uid $USER_ID python
 RUN mkdir -p /usr/src/myapp && \
     chown -R python:python /usr/src/myapp
