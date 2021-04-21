@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  create-app:
+    build: 
+        dockerfile: create_app.dockerfile
+        args:
+            - USER_ID
+            - GROUP_ID
+        context: .
+    image: nlp_demo_create_app:0.0.1
+    command: ["npx", "-y", "create-react-app", "/app/$APP_NAME"]
+    volumes:
+      - "$PWD:/app"
+
+  run-app:
+    image: node:15.14.0-alpine3.10
+    ports: 
+      - "127.0.0.1:3000:3000"
+    command: ["yarn", "start"]
+    user: node
+    working_dir: "/app/$APP_NAME"
+    volumes:
+      - "$PWD:/app"
+
+  build-app:
+    build: 
+      dockerfile: create_app.dockerfile
+      args:
+          - USER_ID
+          - GROUP_ID
+      context: .
+    image: nlp_demo_create_app:0.0.1
+    command: ["yarn", "build"]
+    working_dir: "/app/$APP_NAME"
+    volumes:
+      - "$PWD:/app"
+
+  interact-app:
+    build: 
+      dockerfile: create_app.dockerfile
+      args:
+          - USER_ID
+          - GROUP_ID
+      context: .
+    image: nlp_demo_create_app:0.0.1
+    command: ${cmd}
+    working_dir: "/app/$APP_NAME"
+    volumes:
+      - "$PWD:/app"
+
