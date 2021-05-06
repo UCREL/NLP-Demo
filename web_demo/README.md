@@ -1,3 +1,21 @@
+## Generate semantic tagging example
+
+Ensure that you have installed the required python requirements:
+
+``` bash
+pip install -r requirements.txt
+```
+
+If you want to use a different example change the example text that is within [./usas_example.txt](./usas_example.txt).
+
+Run the following:
+
+``` bash
+bash generate_usas_example.sh
+```
+
+This will then output the relevant JSON to: [./usas_example.json](./usas_example.json).
+
 ## makefile
 
 A good tutorial on [makefiles](https://makefiletutorial.com/)
