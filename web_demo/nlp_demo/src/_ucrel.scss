@@ -1,0 +1,54 @@
+.ucrel-token {
+    background-color: white;
+    margin: 0.2rem;
+}
+
+$names-tags: "Z0", "Z1", "Z2", "Z3", "Z8";
+
+// Names
+$name-tags: "Z0", "Z1", "Z2", "Z3";
+$name-color: #B4CCCF; 
+@each $name-tag in $name-tags {
+    ##{$name-tag} {
+        background-color: $name-color;
+        color: #000000;
+        fill: $name-color;
+    }
+}
+
+// Time
+$time-tags: "T1", "T2", "T3", "T4";
+$time-color: #FFD1E9;
+@each $time-tag in $time-tags {
+    ##{$time-tag} {
+        background-color: $time-color;
+        color: #000000;
+        fill: $time-color;
+    }
+}
+
+// Numbers
+$numbers-color: #CFAE95;
+#N1 {
+    background-color: $numbers-color;
+    color: #000000;
+    fill: $numbers-color;
+}
+// Measurements
+$measurement-color: #FFE5D1;
+#N3 {
+    background-color: $measurement-color;
+    color: #000000;
+    fill: $measurement-color;
+}
+
+// Emotion
+$emotions: "E1", "E2", "E3", "E4", "E5", "E6";
+$emotions-color: #A0CF9F;
+@each $emotion in $emotions {
+    ##{$emotion} {
+        background-color: $emotions-color;
+        color: #000000;
+        fill: $emotions-color;
+    }
+}

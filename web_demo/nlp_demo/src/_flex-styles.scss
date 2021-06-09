@@ -1,0 +1,28 @@
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex {
+    @include flexbox();
+}
+
+.flex-wrap {
+    @include flexbox();
+    flex-wrap: wrap;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-space-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-center {
+    justify-content: center;
+}
