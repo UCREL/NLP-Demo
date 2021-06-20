@@ -1,53 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
 
 import UCRELDoc from './UCRELDoc';
-
-async function getJSONData(url = '') {
-    const response = await fetch(url, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'default',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'same-origin'
-    });
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    else {
-        if (response.headers.has('Content-Type')){
-            if (response.headers.get('Content-Type').includes('application/json')){
-                return response.json(); 
-            }
-            
-        }
-        throw new Error(`Wrong Content-Type Return`); 
-    }
-}
-
-const UCRELSpinner = (props) => {
-    if (Object.keys(props.data).length === 0){
-        return (
-            <Container className="flex flex-center pt-3">
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
-            </Container>
-        )
-    }
-    else if ('error' in props.data){
-        return(<h5>Error: Example document not in the correct location.</h5>)
-    }
-    else {
-        return(<UCRELDoc tokens={props.data.tokens} sentenceIndexes={props.data.sentence_indexes}/>);
-    }
-}
+import {getJSONData, LoadObject} from './Utilities';
 
 function KeyBoxes(props) {
     return (
@@ -94,6 +50,10 @@ function SemanticTagging() {
         }
     }, [ucrelData])
 
+    function ucrelDoc(){
+        return(<UCRELDoc tokens={ucrelData.tokens} 
+                         sentenceIndexes={ucrelData.sentence_indexes}/>)
+    }
     
 
     return(
@@ -106,7 +66,7 @@ function SemanticTagging() {
             <hr />
             <SemanticTagKey/>
             <hr />
-            <UCRELSpinner data={ucrelData} />
+            <LoadObject data={ucrelData} onSuccess={ucrelDoc}/>
 
             
         </Container>
