@@ -7,7 +7,7 @@ import Contact from './Contact';
 
 
 
-const Different = () => {
+const App = () => {
 
     return (
         <div>
@@ -20,4 +20,4 @@ const Different = () => {
         </div>
     )
 }
-export default Different
+export default App
