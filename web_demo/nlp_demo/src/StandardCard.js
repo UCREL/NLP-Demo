@@ -7,11 +7,11 @@ const moreInfoPopover = (
     [<div key="1">
         <p>
             The main researcher at Lancaster that conducts dialect identification
-            research is <a href="https://www.lancaster.ac.uk/staff/elhaj/index.html">
+            research is <a rel="noreferrer" target="_blank" href="https://www.lancaster.ac.uk/staff/elhaj/index.html">
             Dr. Mahmoud El-Haj</a>. 
         </p>
         <p>
-            <a href="https://www.lancaster.ac.uk/staff/elhaj/docs/habibi.pdf">In 
+            <a rel="noreferrer" target="_blank" href="https://www.lancaster.ac.uk/staff/elhaj/docs/habibi.pdf">In 
             his latest work on dialect identification 
             he created a novel dataset from Arabic song lyrics that covered 6 
             Arabic dialects from 18 Arabic Countries, and benchmarked various 

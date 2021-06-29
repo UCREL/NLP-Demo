@@ -11,16 +11,16 @@ import CodeMixedCard from './CodeMixedCard';
 import DialectCard from './DialectCard';
 import DemoCard from './DemoCard';
 
-const LanguageIdentification = (props) => {
+const LanguageIdentification = () => {
 
     return(
         <Container className="extra-height-padding">
             <h1>Language Identification</h1>
-            <p className="lead text-muted">
+            <p className="lead-text-muted">
                 The task of predicting the language of a given text.
             </p>
             <hr/>
-            <Row>
+            <Row className="pt-2">
                 <Col md={{ span: 8, offset: 2 }}>
                 <Tab.Container defaultActiveKey="standard">
                     <Card className="mx-auto">

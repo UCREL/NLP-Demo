@@ -62,7 +62,7 @@ const TitleContainer = () => {
                         </p>
                         <footer><i className="bi bi-dash" role="img" aria-label="Dash"/>
                             <cite>
-                                <a href="https://doi.org/10.2200/S00762ED1V01Y201703HLT037">
+                                <a rel="noreferrer" target="_blank" href="https://doi.org/10.2200/S00762ED1V01Y201703HLT037">
                                 Neural Network Methods for Natural Language 
                                 Processing</a> by Yoav Goldberg
                             </cite>
