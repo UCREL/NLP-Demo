@@ -7,7 +7,7 @@ $names-tags: "Z0", "Z1", "Z2", "Z3", "Z8";
 
 // Names
 $name-tags: "Z0", "Z1", "Z2", "Z3";
-$name-color: #B4CCCF; 
+$name-color: #BCD6E6; 
 @each $name-tag in $name-tags {
     ##{$name-tag} {
         background-color: $name-color;
@@ -44,7 +44,7 @@ $measurement-color: #FFE5D1;
 
 // Emotion
 $emotions: "E1", "E2", "E3", "E4", "E5", "E6";
-$emotions-color: #A0CF9F;
+$emotions-color: #FFA9A3;
 @each $emotion in $emotions {
     ##{$emotion} {
         background-color: $emotions-color;

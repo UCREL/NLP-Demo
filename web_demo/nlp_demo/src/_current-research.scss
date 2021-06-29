@@ -1,0 +1,21 @@
+@use './global-colors' as *;
+
+#slider {
+    text-decoration: none;
+    color: black;
+}
+
+#slider:hover .card-title{
+    color: $primary;
+    text-decoration: underline;
+}
+
+#slider:hover .card{
+    border: 2px solid black;
+    
+}
+
+.slick-next:before, .slick-prev:before {
+    color: black;
+    opacity: 1;
+}

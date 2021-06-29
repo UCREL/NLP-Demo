@@ -257,16 +257,19 @@ function WordCloud() {
     }
 
     function tagCloud(){
-        return(<TagCloud className="center-text" minSize={minimumFontSize} 
-                         maxSize={maximumFontSize} tags={wordCloudData} 
-                         shuffle={false} 
-                         renderer={defaultRenderer} />)
+        return(
+        <div style={{width: "100%"}} className="flex-col flex-center">
+            <TagCloud className="center-text" minSize={minimumFontSize} 
+                            maxSize={maximumFontSize} tags={wordCloudData} 
+                            shuffle={false} 
+                            renderer={defaultRenderer} />
+        </div>)
     }
 
     
     return(
-        <div className="full-height" id="full-width">
-            <div style={{height: "20vh", overflow: "auto", width: "100%"}}>
+        <div className="extra-height-padding" id="full-width">
+            <div style={{width: "100%"}}>
                 <Col xs={12} md={{span: 8, offset: 2}} >
                     <h1>Word Cloud of 3rd year theses</h1>
                     <p className="lead text-muted">
@@ -282,7 +285,7 @@ function WordCloud() {
                 
             </div>
             
-            <div style={{height: "80vh", overflow: "auto", width: "100%"}}>
+            <div style={{width: "100%"}}>
                 
                 <Col xs={12} md={{span: 8, offset: 2}}>
                     <div className="pb-3">
@@ -292,16 +295,19 @@ function WordCloud() {
                             className={`bi bi-${toggleIcon}-circle cursor-pointer`}></i>
                         </span>
                     </div>
-                    
                 
                     {optionsDiv}
+                    
                     <div style={{width: "100%"}} className="flex flex-center">
                         <Form.Switch className="no-select" id="sem-tag-switch" 
                                     label="Click to switch between words and Semantic Tags" 
                                     onChange={changeDataSource}
                                     />
                     </div>
+                    
+
                     <hr/>
+                
                 </Col>
             
                 <LoadObject data={wordCloudData} onSuccess={tagCloud} />

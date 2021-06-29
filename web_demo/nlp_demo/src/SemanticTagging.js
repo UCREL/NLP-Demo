@@ -57,7 +57,7 @@ function SemanticTagging() {
     
 
     return(
-        <Container className="full-height" id="full-width">
+        <Container className="extra-height-padding" id="full-width">
             <h1>Semantic Tagging</h1>
             <p className="lead text-muted">
                 The task of predicting the broad dictionary sense for 

@@ -37,7 +37,7 @@ const TitleContainer = () => {
     }
 
     return (
-        <Jumbotron id="title-div" className="title-container full-height">
+        <Jumbotron id="title-div">
             <header>
                 <div>
                     <LULogo height="100%"/>

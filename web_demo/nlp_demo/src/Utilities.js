@@ -72,10 +72,11 @@ const LoadObject = (props) => {
         return(<h5>Error: Could not load requested document.</h5>)
     }
     else {
-        return(
-        <div style={{width: "100%"}} className="flex-col flex-center">
-            {props.onSuccess()}
-        </div>);
+        return (
+            <div>
+                {props.onSuccess()}
+            </div>
+        )
     }
 }
 
