@@ -1,0 +1,66 @@
+@use 'flex-styles' as *;
+@use './global-colors' as *;
+
+#qr-code-div {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    height: 25%;
+    width: 100%;
+}
+
+
+#qr-code-div div {
+    height: 100%;
+    background-color: $transparent-white;
+}
+
+#image-background {
+    position: absolute;
+    left: 0%; 
+    bottom: 0%; 
+    height: 90%; 
+    width: 100%;
+    background-color: $title-background;
+    background-image: url(./images/title-image.jpeg);
+    background-size: cover;
+}
+
+#title-div {
+    position: relative;
+    padding: 0;
+}
+
+#title-div header {
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    position: absolute;
+    left: 0%;
+    top: 0;
+}
+
+#title-div header div{
+    @include flexbox();
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    
+
+}
+
+#title-text-div {
+    position: absolute; 
+    left: 0%; 
+    bottom: 25%; 
+    height: 50%; 
+    width: 100%;
+}
+
+#title-text-div div {
+    background-color: $transparent-white;
+}
+
+#svg-pointer {
+    cursor: pointer;
+}

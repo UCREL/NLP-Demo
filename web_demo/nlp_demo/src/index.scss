@@ -1,12 +1,16 @@
+@use './global-colors' as *;
 @use './include-media' as *;
 @use './flex-styles' as *;
 @use './ucrel' as *;
 @use './semantic-tagging' as *;
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
+@use './current-research' as *;
+@use './title' as *;
 
+/* import only the necessary Bootstrap files */
+@import "bootstrap/scss/functions"; 
+@import "bootstrap/scss/variables";
 
+@import "bootstrap";
 
 // Reference: 
 // https://www.taniarascia.com/design-for-developers/#use-fewer-fonts-or-be-consistent-with-fonts
@@ -23,6 +27,14 @@ html {
     height: 100vh;
 }
 
+option {
+    font-size: 1rem;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: black !important;
+}
+
 //$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
 
 @include media (">=tablet") {
@@ -32,9 +44,8 @@ html {
         padding-right: 10%;
     }
 }
-.title-container h1 {
-    padding: 10vh 0 0 0;
-}
+
+
 
 
 blockquote {
@@ -51,11 +62,15 @@ blockquote {
     text-align: center;
 }
 
-
 .card-label-col {
     border: solid;
     border-width: $border-width;
     border-color: $border-color;
+    border-right: 0;
+}
+
+.contacts {
+    background-color: $title-background;
 }
 
 .no-top-border {
@@ -88,6 +103,9 @@ blockquote {
 .card-label-input-value button {
     font-weight: bold;
 }
+.bold {
+    font-weight: bold;
+}
 
 .card-label-input-value p {
     margin: auto;
@@ -103,4 +121,24 @@ blockquote {
 
 .bi-info-circle {
     cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+// Reference
+// https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.no-margin {
+    margin: 0;
 }
