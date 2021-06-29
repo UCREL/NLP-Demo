@@ -1,3 +1,4 @@
+import { useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -13,6 +14,8 @@ import DemoCard from './DemoCard';
 
 const LanguageIdentification = () => {
 
+    const [showTitleInfo, setShowTitleInfo] = useState(false);
+
     return(
         <Container className="extra-height-padding">
             <h1>Language Identification</h1>
@@ -25,7 +28,8 @@ const LanguageIdentification = () => {
                 <Tab.Container defaultActiveKey="standard">
                     <Card className="mx-auto">
                         <Card.Header>
-                            <Nav variant="tabs">
+                            <Nav variant="tabs" 
+                                 onSelect={()=>{setShowTitleInfo(false);}}>
                                 <Nav.Item>
                                     <Nav.Link eventKey="standard">
                                         Standard
@@ -51,13 +55,16 @@ const LanguageIdentification = () => {
 
                         <Tab.Content>
                             <Tab.Pane eventKey="standard">
-                                <StandardCard/>
+                                <StandardCard showTitleInfo={showTitleInfo} 
+                                              setShowTitleInfo={setShowTitleInfo}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="codemixed">
-                                <CodeMixedCard />
+                                <CodeMixedCard showTitleInfo={showTitleInfo} 
+                                               setShowTitleInfo={setShowTitleInfo}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="dialects">
-                                <DialectCard />
+                                <DialectCard showTitleInfo={showTitleInfo} 
+                                             setShowTitleInfo={setShowTitleInfo}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="demo">
                                 <DemoCard />

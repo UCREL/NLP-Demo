@@ -14,11 +14,14 @@ const moreInfoPopover = (
     </div>]
 );
 
-const CodeMixedCard = () => {
+const CodeMixedCard = (props) => {
     return (
         <Container>
             <Card.Body>
-                <InfoTitle title="Codemixed" info={moreInfoPopover} />
+                <InfoTitle title="Codemixed" info={moreInfoPopover} 
+                           showTitleInfo={props.showTitleInfo}
+                           setShowTitleInfo={props.setShowTitleInfo}
+                />
                 <hr/>
             </Card.Body>
             <CardLabel label="Spanish / English" 

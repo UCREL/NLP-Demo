@@ -20,11 +20,14 @@ const moreInfoPopover = (
     </div>]
 );
 
-const StandardCard = () => {
+const StandardCard = (props) => {
+
     return (
         <Container>
             <Card.Body>
-                <InfoTitle title="Standard" info={moreInfoPopover}/>
+                <InfoTitle title="Standard" info={moreInfoPopover}
+                           showTitleInfo={props.showTitleInfo}
+                           setShowTitleInfo={props.setShowTitleInfo} />
                 <hr/>
             </Card.Body>
             <CardLabel text="Lancaster uni has a yearly competition with York Uni, 

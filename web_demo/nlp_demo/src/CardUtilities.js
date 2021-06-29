@@ -49,10 +49,12 @@ const InfoTitle = (props) => {
                         style={{paddingLeft: "1rem"}}>
                 <h3>{props.title}</h3>
             </Card.Title>
-            <OverlayTrigger trigger="click" placement="left" 
-                            overlay={popover}>
-                <i className="bi bi-info-circle" role="img" 
-                   aria-label="Information"/>
+            <OverlayTrigger placement="left" overlay={popover} 
+                            show={props.showTitleInfo} 
+                            >
+                <i className="bi bi-info-circle cursor-pointer" role="img" 
+                   aria-label="Information" 
+                   onClick={() => {props.setShowTitleInfo(!props.showTitleInfo)}}/>
             </OverlayTrigger>
         </div>
     )

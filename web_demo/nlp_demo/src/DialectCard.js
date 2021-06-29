@@ -45,7 +45,7 @@ const DialectTabNav = (props) => {
     for (const dataIndex in data) {
         const dialect = data[dataIndex];
         navArray.push(
-            <Nav.Item className="col" key={dialect.key}>
+            <Nav.Item className="col text-center" key={dialect.key}>
                 <DialectNavLink dialect={dialect} />
             </Nav.Item>
         )
@@ -80,7 +80,7 @@ const DialectTabContent = (props) => {
 
 }
 
-const DialectCard = () => {
+const DialectCard = (props) => {
     const dialectExamples = [{text: "سوف اخذ هذه , من فضلك ْ", language: "MSA", key: "msa", abbr: "Modern Standard Arabic"},
                              {text: "حناخد هدا , من فضلك ْ", language: "Tripoli", key: "tripoli"},
                              {text: "حاخد ده, اذا سمحتْ", language: "Cairo", key: "cairo"},
@@ -88,7 +88,9 @@ const DialectCard = () => {
     return (
         <Container>
             <Card.Body>
-                <InfoTitle title="Dialects" info={moreInfoPopover}/>
+                <InfoTitle title="Dialects" info={moreInfoPopover}
+                           showTitleInfo={props.showTitleInfo}
+                           setShowTitleInfo={props.setShowTitleInfo}/>
                 <hr/>
                 <Card.Text>
                     The sentence in each tab below represents the same 
