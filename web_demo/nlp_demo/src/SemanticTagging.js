@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 import UCRELDoc from './UCRELDoc';
 import {getJSONData, LoadObject} from './Utilities';
@@ -57,19 +57,23 @@ function SemanticTagging() {
     
 
     return(
-        <Container className="extra-height-padding alternative-color" id="full-width">
-            <h1>Semantic Tagging</h1>
-            <p className="lead-text-muted">
-                The task of predicting the broad dictionary sense for 
-                each word in a given text.
-            </p>
-            <hr />
-            <SemanticTagKey/>
-            <hr />
-            <LoadObject data={ucrelData} onSuccess={ucrelDoc}/>
-
+        <div className="extra-height-padding alternative-color" id="full-width">
+            <div style={{width: "100%"}}>
+                <Col xs={12} xl={{span: 8, offset: 2}}>
+                    <h1>Semantic Tagging</h1>
+                    <p className="lead-text-muted">
+                        The task of predicting the broad dictionary sense for 
+                        each word in a given text.
+                    </p>
+                    <hr />
+                    <SemanticTagKey/>
+                    <hr />
+                </Col>
             
-        </Container>
+                <LoadObject data={ucrelData} onSuccess={ucrelDoc}/>
+            </div>
+            
+        </div>
     )
 } 
 

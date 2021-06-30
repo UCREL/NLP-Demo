@@ -23,68 +23,70 @@ const LanguageIdentification = () => {
     }
 
     return(
-        <Container className="extra-height-padding">
-            <h1>Language Identification</h1>
-            <p className="lead-text-muted">
-                The task of predicting the language of a given text.
-            </p>
-            <hr/>
-            <Row className="pt-2">
-                <Col md={{ span: 8, offset: 2 }}>
-                <Tab.Container defaultActiveKey="standard">
-                    <Card className="mx-auto">
-                        <Card.Header>
-                            <Nav variant="tabs" 
-                                 onSelect={onNavSelect}>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="standard">
-                                        Standard
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="codemixed">
-                                        Codemixed
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="dialects">
-                                        Dialects
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="demo">
-                                        Demo
-                                    </Nav.Link>
-                                </Nav.Item>
-                            </Nav>
-                        </Card.Header>
+        <div className="extra-height-padding" id="full-width">
+            <Col xs={12} xl={{span: 8, offset: 2}}>
+                <h1>Language Identification</h1>
+                <p className="lead-text-muted">
+                    The task of predicting the language of a given text.
+                </p>
+                <hr/>
+                <Row className="pt-2">
+                    <Col xl={{ span: 8, offset: 2 }}>
+                    <Tab.Container defaultActiveKey="standard">
+                        <Card className="mx-auto">
+                            <Card.Header>
+                                <Nav variant="tabs" 
+                                    onSelect={onNavSelect}>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="standard">
+                                            Standard
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="codemixed">
+                                            Codemixed
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="dialects">
+                                            Dialects
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="demo">
+                                            Demo
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                </Nav>
+                            </Card.Header>
 
-                        <Tab.Content>
-                            <Tab.Pane eventKey="standard">
-                                <StandardCard showTitleInfo={showTitleInfo} 
-                                              setShowTitleInfo={setShowTitleInfo}/>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="codemixed">
-                                <CodeMixedCard showTitleInfo={showTitleInfo} 
-                                               setShowTitleInfo={setShowTitleInfo}
-                                               showTranslationText={showTranslationText}
-                                               setShowTranslationText={setShowTranslationText}
-                                               />
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="dialects">
-                                <DialectCard showTitleInfo={showTitleInfo} 
-                                             setShowTitleInfo={setShowTitleInfo}/>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="demo">
-                                <DemoCard />
-                            </Tab.Pane>
-                        </Tab.Content>
-                        
-                    </Card>
-                </Tab.Container>
-                </Col>
-            </Row>
-        </Container>
+                            <Tab.Content>
+                                <Tab.Pane eventKey="standard">
+                                    <StandardCard showTitleInfo={showTitleInfo} 
+                                                setShowTitleInfo={setShowTitleInfo}/>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="codemixed">
+                                    <CodeMixedCard showTitleInfo={showTitleInfo} 
+                                                setShowTitleInfo={setShowTitleInfo}
+                                                showTranslationText={showTranslationText}
+                                                setShowTranslationText={setShowTranslationText}
+                                                />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="dialects">
+                                    <DialectCard showTitleInfo={showTitleInfo} 
+                                                setShowTitleInfo={setShowTitleInfo}/>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="demo">
+                                    <DemoCard />
+                                </Tab.Pane>
+                            </Tab.Content>
+                            
+                        </Card>
+                    </Tab.Container>
+                    </Col>
+                </Row>
+            </Col>
+        </div>
     )
 }
 

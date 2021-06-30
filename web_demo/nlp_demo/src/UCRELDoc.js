@@ -54,9 +54,9 @@ const UCRELDoc = (props) => {
     }
     
     return (
-        <Container>
+        <div style={{width: "100%"}}>
                 {sentences}
-        </Container>
+        </div>
     )
 }
 

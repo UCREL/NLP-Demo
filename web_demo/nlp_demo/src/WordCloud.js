@@ -270,7 +270,7 @@ function WordCloud() {
     return(
         <div className="extra-height-padding" id="full-width">
             <div style={{width: "100%"}}>
-                <Col xs={12} md={{span: 8, offset: 2}} >
+                <Col xs={12} xl={{span: 8, offset: 2}} >
                     <h1>Word Cloud of 3rd year theses</h1>
                     <p className="lead-text-muted">
                         Below is a tag cloud showing the top {numberWords} words that 
@@ -287,7 +287,7 @@ function WordCloud() {
             
             <div style={{width: "100%"}} className="pt-2">
                 
-                <Col xs={12} md={{span: 8, offset: 2}}>
+                <Col xs={12} xl={{span: 8, offset: 2}}>
                     <div className="pb-2">
                         <span>
                             <span className="bold pr-2 no-select">Options</span>

@@ -110,7 +110,7 @@ function CurrentResearch (){
     return(
 
         <div className="extra-height-padding alternative-color" id="full-width">
-            <Col xs={12} md={{span: 8, offset: 2}} >
+            <Col xs={12} xl={{span: 8, offset: 2}} >
                 <h1>Current Research</h1>
                 <hr/>
             </Col>
