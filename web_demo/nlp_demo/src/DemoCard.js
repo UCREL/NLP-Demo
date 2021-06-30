@@ -50,12 +50,13 @@ const DemoCard = () => {
     
     return (
         <Container>
-            <p className="mb-3 mt-3">This uses the Franc language detection javascript library, it can 
-            detect languages. It uses a character tri-gram model, to find 
+            <p className="mb-3 mt-3">This uses the <a rel="noreferrer" target="_blank" href="https://github.com/wooorm/franc/tree/main/packages/franc">Franc language detection javascript library</a>, it can 
+            detect 187 languages. It uses a character tri-gram model, to find 
             distances between the given input and pre-computed tri-gram statistics 
             from the languages. The output is a distance measure rather than a 
             probability, whereby all language distances are normalised based on 
-            the closet language match. 
+            the closet language match. However, here we have converted those distance 
+            measures into probabilities.
             </p>
             <hr/>
             <Form>
