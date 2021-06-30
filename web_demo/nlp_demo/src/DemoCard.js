@@ -50,15 +50,17 @@ const DemoCard = () => {
     
     return (
         <Container>
-            This uses the Franc language detection javascript library, it can 
+            <p className="mb-3 mt-3">This uses the Franc language detection javascript library, it can 
             detect languages. It uses a character tri-gram model, to find 
             distances between the given input and pre-computed tri-gram statistics 
             from the languages. The output is a distance measure rather than a 
             probability, whereby all language distances are normalised based on 
             the closet language match. 
+            </p>
+            <hr/>
             <Form>
                 <Form.Group controlId="inputTextLangDetect">
-                    <Form.Label>Input</Form.Label>
+                    <Form.Label className="bold">Input:</Form.Label>
                     <Form.Control as="textarea" rows={3} spellCheck={true}
                                   ref={inputTextArea} 
                                   placeholder={inputText} onKeyUp={identifyLanguage} />

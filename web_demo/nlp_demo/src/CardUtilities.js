@@ -7,29 +7,6 @@ import Popover from 'react-bootstrap/Popover';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-
-const TranslationText = (props) => {
-    if (typeof props.translation !== 'undefined') {
-        return (
-            <div>
-                <p>{props.text}</p>
-                <OverlayTrigger trigger="click" placement="top" 
-                                overlay={<Popover>
-                                            <Popover.Content>
-                                                {props.translation}
-                                            </Popover.Content>
-                                        </Popover>}>
-                    <Button>Translation</Button>
-                </OverlayTrigger>
-            </div>
-        )
-    }
-    else {
-        return <p>{props.text}</p>
-    }
-
-}
-
 const infoPopover = (info) => {
     return (
         <Popover>
@@ -40,6 +17,30 @@ const infoPopover = (info) => {
     )
 }
 
+
+const TranslationText = (props) => {
+
+    if (typeof props.translation !== 'undefined') {
+        return (
+            <div className="flex-wrap flex-space-evenly" 
+                 style={{width: "100%", "alignItems": "center"}}>
+                <p className="m-1">{props.text}</p>
+                <OverlayTrigger placement="bottom"
+                                show={props.showTranslationText} 
+                                overlay={infoPopover(props.translation)}>
+                    <Button onClick={() => {props.setShowTranslationText(!props.showTranslationText)}}
+                            className="m-1">
+                        Translation
+                    </Button> 
+                </OverlayTrigger>
+            </div>
+        )
+    }
+    else {
+        return <p>{props.text}</p>
+    }
+
+}
 
 const InfoTitle = (props) => {
     const popover = infoPopover(props.info);
@@ -70,7 +71,9 @@ const CardLabel = (props) => {
                 </Col>
                 <Col sm={8} md={{ span: 7}} 
                      className="card-label-col card-label-input-value">
-                    <TranslationText text={props.text} translation={props.translation}/>
+                    <TranslationText showTranslationText={props.showTranslationText} 
+                                     setShowTranslationText={props.setShowTranslationText}
+                                     text={props.text} translation={props.translation}/>
                 </Col>
             </Row>
             <Row>

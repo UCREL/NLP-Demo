@@ -76,7 +76,6 @@ blockquote {
     border: solid;
     border-width: $border-width;
     border-color: $border-color;
-    border-right: 0;
 }
 
 .contacts-div {
@@ -142,6 +141,7 @@ blockquote {
 
 .card-label-output-value {
     display: flex;
+    padding: 1rem;
 }
 
 .card-label-output-value h4 {

@@ -27,7 +27,9 @@ const CodeMixedCard = (props) => {
             <CardLabel label="Spanish / English" 
                        text={[<span key="1" style={{textDecoration: "underline", fontWeight: "bold"}}>dame ese</span>,
                               <span key="2"> book that you told me about</span>]}
-                       translation="Give me this book that you told me about" />
+                       translation="Give me this book that you told me about"
+                       showTranslationText={props.showTranslationText}
+                       setShowTranslationText={props.setShowTranslationText} />
             <Card.Body>
                 <p>
                     In general texts that contain more than one language (codemixed) is 

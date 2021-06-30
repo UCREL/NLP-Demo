@@ -15,6 +15,12 @@ import DemoCard from './DemoCard';
 const LanguageIdentification = () => {
 
     const [showTitleInfo, setShowTitleInfo] = useState(false);
+    const [showTranslationText, setShowTranslationText] = useState(false);
+
+    const onNavSelect = () => {
+        setShowTitleInfo(false);
+        setShowTranslationText(false);
+    }
 
     return(
         <Container className="extra-height-padding">
@@ -29,7 +35,7 @@ const LanguageIdentification = () => {
                     <Card className="mx-auto">
                         <Card.Header>
                             <Nav variant="tabs" 
-                                 onSelect={()=>{setShowTitleInfo(false);}}>
+                                 onSelect={onNavSelect}>
                                 <Nav.Item>
                                     <Nav.Link eventKey="standard">
                                         Standard
@@ -60,7 +66,10 @@ const LanguageIdentification = () => {
                             </Tab.Pane>
                             <Tab.Pane eventKey="codemixed">
                                 <CodeMixedCard showTitleInfo={showTitleInfo} 
-                                               setShowTitleInfo={setShowTitleInfo}/>
+                                               setShowTitleInfo={setShowTitleInfo}
+                                               showTranslationText={showTranslationText}
+                                               setShowTranslationText={setShowTranslationText}
+                                               />
                             </Tab.Pane>
                             <Tab.Pane eventKey="dialects">
                                 <DialectCard showTitleInfo={showTitleInfo} 
