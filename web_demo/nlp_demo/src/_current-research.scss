@@ -1,16 +1,17 @@
+@use './include-media' as *;
 @use './global-colors' as *;
 
-#slider {
+#current-research-slider {
     text-decoration: none;
     color: black;
 }
 
-#slider:hover .card-title{
+#current-research-slider:hover .card-title{
     color: $primary;
     text-decoration: underline;
 }
 
-#slider:hover .card{
+#current-research-slider:hover .card{
     border: 2px solid black;
     
 }
@@ -18,4 +19,11 @@
 .slick-next:before, .slick-prev:before {
     color: black;
     opacity: 1;
+}
+
+.current-research-div {
+    @include media ("<tablet") {
+        padding-left: 1.5rem; 
+        padding-right: 1.5rem;
+    }
 }

@@ -1,7 +1,6 @@
 @use './global-colors' as *;
 @use './include-media' as *;
 @use './flex-styles' as *;
-@use './current-research' as *;
 
 /* import only the necessary Bootstrap files */
 @import "bootstrap/scss/functions"; 
@@ -101,14 +100,6 @@ option {
         
     }
 }
-
-.current-research {
-    @include media ("<tablet") {
-        padding-left: 1.5rem; 
-        padding-right: 1.5rem;
-    }
-}
-
 
 .alternative-color {
     margin: 0;

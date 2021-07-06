@@ -1,3 +1,6 @@
+import './_current-research.scss';
+import './index.scss';
+
 import { useState, useEffect } from 'react';
 
 
@@ -61,7 +64,8 @@ function CurrentResearch (){
             const imageURL = data.imageURL;
             researchSlides.push(
                     <Col key={title}>
-                        <a id="slider" href={webpage} target="_blank" rel="noreferrer">
+                        <a id="current-research-slider" 
+                           href={webpage} target="_blank" rel="noreferrer">
                             
                             <Card>
                                 <Card.Img variant="top"  src={imageURL} alt="" width="300" />
@@ -109,7 +113,8 @@ function CurrentResearch (){
 
     return(
 
-        <div className="extra-height-padding alternative-color" id="full-width">
+        <div className="extra-height-padding alternative-color current-research-div" 
+             id="full-width">
             <Col xs={12} xl={{span: 8, offset: 2}} >
                 <h1>Current Research</h1>
                 <hr/>
