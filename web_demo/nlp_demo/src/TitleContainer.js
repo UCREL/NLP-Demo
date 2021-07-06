@@ -42,7 +42,7 @@ const TitleContainer = () => {
             <header>
                 <div>
                     <svg viewBox="0 0 420 135" height="100%" x="0px" y="0px" 
-                            preserveAspectRatio="xMidYMid meet" className="title-svg">
+                         preserveAspectRatio="xMidYMid meet" className="title-svg">
                                 <LULogo height="100%"/>
                     </svg>
                     
