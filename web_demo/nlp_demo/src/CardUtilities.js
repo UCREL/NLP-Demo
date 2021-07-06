@@ -1,3 +1,6 @@
+import './_card.scss';
+import './index.scss';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -29,7 +32,7 @@ const TranslationText = (props) => {
                                 show={props.showTranslationText} 
                                 overlay={infoPopover(props.translation)}>
                     <Button onClick={() => {props.setShowTranslationText(!props.showTranslationText)}}
-                            className="m-1">
+                            className="m-1 bold">
                         Translation
                     </Button> 
                 </OverlayTrigger>
@@ -77,11 +80,11 @@ const CardLabel = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col className="card-label-names card-label-col no-top-border" 
+                <Col className="card-label-names card-label-col" 
                     sm={4} md={{ span: 3, offset: 1 }} >
                     <h4>Output</h4>
                 </Col>
-                <Col className="card-label-output-value card-label-col no-top-border" 
+                <Col className="card-label-output-value card-label-col" 
                     sm={8} md={{ span: 7}} >
                     <h4>
                         <Badge variant="primary">{props.label}</Badge>

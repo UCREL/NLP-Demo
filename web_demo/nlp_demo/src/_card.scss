@@ -1,0 +1,46 @@
+@use './global-colors' as *;
+@use './flex-styles' as *;
+
+@import "bootstrap/scss/functions"; 
+@import "bootstrap/scss/variables";
+
+
+.card-label-col {
+    border: solid;
+    border-width: $border-width;
+    border-color: $border-color;
+}
+
+.card-label-container{
+    height: 100%;
+    text-align: center;
+}
+
+.card-label-names {
+    background-color: $card-cap-bg;
+    @include flexbox();
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-label-input-value {
+    
+    padding: 1rem;
+    
+    div {
+        @include flexbox();
+        justify-content: center;
+    }
+    
+    p {
+        margin: 0;
+    }
+}
+
+.card-label-output-value {
+    @include flexbox();
+    justify-content: center;
+    padding: 1rem;
+}

@@ -1,3 +1,5 @@
+import './index.scss';
+
 import { useState } from 'react';
 
 import Card from 'react-bootstrap/Card';
@@ -30,7 +32,7 @@ const LanguageIdentification = () => {
                 </p>
                 <hr/>
                 <Row className="pt-2">
-                    <Col xl={{ span: 8, offset: 2 }}>
+                    <Col >
                     <Tab.Container defaultActiveKey="standard">
                         <Card className="mx-auto">
                             <Card.Header>

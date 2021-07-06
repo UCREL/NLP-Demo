@@ -130,11 +130,7 @@ blockquote {
     text-align: center;
 }
 
-.card-label-col {
-    border: solid;
-    border-width: $border-width;
-    border-color: $border-color;
-}
+
 
 .contacts-div {
     background-color: $contacts-color;
@@ -161,52 +157,7 @@ blockquote {
     }
 }
 
-.no-top-border {
-    border-top: 0;
-}
-.card-label-container{
-    height: 100%;
-    text-align: center;
-}
 
-.card-label-names {
-    border-right: 0;
-    background-color: $card-cap-bg;
-    display: flex;
-    padding: 1rem;
-}
-
-.card-label-names h4 {
-    margin: auto;
-}
-.card-label-input-value {
-    display: flex;
-    padding: 1rem;
-}
-
-.card-label-input-value div {
-    display: flex;
-}
-
-.card-label-input-value button {
-    font-weight: bold;
-}
-.bold {
-    font-weight: bold;
-}
-
-.card-label-input-value p {
-    margin: auto;
-}
-
-.card-label-output-value {
-    display: flex;
-    padding: 1rem;
-}
-
-.card-label-output-value h4 {
-    margin: auto;
-}
 
 .card-body {
     padding: 1rem 0rem;
@@ -223,6 +174,16 @@ blockquote {
 .card-title {
     margin: 0;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+
 
 .popover {
     width: min(276px, 65vw);

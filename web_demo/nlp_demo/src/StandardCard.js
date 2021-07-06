@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 import { CardLabel, InfoTitle } from './CardUtilities';
 
@@ -23,7 +23,7 @@ const moreInfoPopover = (
 const StandardCard = (props) => {
 
     return (
-        <Container>
+        <Col xs={12} lg={{span: 10, offset: 1}}>
             <Card.Body>
                 <InfoTitle title="Standard" info={moreInfoPopover}
                            showTitleInfo={props.showTitleInfo}
@@ -43,7 +43,7 @@ const StandardCard = (props) => {
                     aria-label="Information image example"/>).
                 </p>
             </Card.Body>
-        </Container>
+        </Col>
     )
 }
 

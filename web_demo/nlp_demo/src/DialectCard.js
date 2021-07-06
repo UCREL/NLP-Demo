@@ -1,3 +1,5 @@
+import './index.scss';
+
 import Tooltip from 'react-bootstrap/Tooltip';
 import Card from 'react-bootstrap/Card';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -5,7 +7,6 @@ import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 
 import { InfoTitle } from './CardUtilities';
 
@@ -51,7 +52,7 @@ const DialectTabNav = (props) => {
         )
     }
     return (
-        <Nav variant="pills" className="flex-column">
+        <Nav variant="pills" className="flex-col pt-3">
             <Row>
                 {navArray}
             </Row>
@@ -86,7 +87,7 @@ const DialectCard = (props) => {
                              {text: "حاخد ده, اذا سمحتْ", language: "Cairo", key: "cairo"},
                              {text: "رح اخد هاد , ¯ اذا سمحت ْ", language: "Damascus", key: "damascus"}];
     return (
-        <Container>
+        <Col xs={12} lg={{span: 10, offset: 1}}>
             <Card.Body>
                 <InfoTitle title="Dialects" info={moreInfoPopover}
                            showTitleInfo={props.showTitleInfo}
@@ -97,7 +98,7 @@ const DialectCard = (props) => {
                     sentence but in different Arabic dialects. The 
                     English translation of the sentence is: 
                 </Card.Text>
-                <Card.Text className="font-italic text-center">
+                <Card.Text className="font-italic text-center pt-2 pb-2">
                     "I’ll take this one, please"
                 </Card.Text>
                 <Card.Text>
@@ -105,7 +106,7 @@ const DialectCard = (props) => {
                     and Tripoli, this overlap between dialects is why 
                     the task of dialect identification can be difficult.
                 </Card.Text>
-                <Tab.Container id="top-tabs" defaultActiveKey={dialectExamples[0].key}>
+                <Tab.Container defaultActiveKey={dialectExamples[0].key}>
                     <Col>
                         <DialectTabNav data={dialectExamples} />
                     </Col>
@@ -114,7 +115,7 @@ const DialectCard = (props) => {
                     </Col>
                 </Tab.Container>
             </Card.Body>
-        </Container>
+        </Col>
     )
 }
 

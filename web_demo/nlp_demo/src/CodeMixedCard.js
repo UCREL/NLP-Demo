@@ -1,5 +1,7 @@
+import './index.scss';
+
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 import { CardLabel, InfoTitle } from './CardUtilities';
 
@@ -16,7 +18,7 @@ const moreInfoPopover = (
 
 const CodeMixedCard = (props) => {
     return (
-        <Container>
+        <Col xs={12} lg={{span: 10, offset: 1}}>
             <Card.Body>
                 <InfoTitle title="Codemixed" info={moreInfoPopover} 
                            showTitleInfo={props.showTitleInfo}
@@ -25,7 +27,7 @@ const CodeMixedCard = (props) => {
                 <hr/>
             </Card.Body>
             <CardLabel label="Spanish / English" 
-                       text={[<span key="1" style={{textDecoration: "underline", fontWeight: "bold"}}>dame ese</span>,
+                       text={[<span key="1" className="bold underline">dame ese</span>,
                               <span key="2"> book that you told me about</span>]}
                        translation="Give me this book that you told me about"
                        showTranslationText={props.showTranslationText}
@@ -39,6 +41,7 @@ const CodeMixedCard = (props) => {
                     this in itself normally brings it's own problems like abbrevations and 
                     mis-spellings. 
                 </p>
+                <br/>
                 <p>
                     Methods for this task are expected to output the 
                     language(s) that are within a text, some methods can even output 
@@ -48,7 +51,7 @@ const CodeMixedCard = (props) => {
                     Codemixed Text</a>.
                 </p>
             </Card.Body>
-        </Container>
+        </Col>
     )
 }
 

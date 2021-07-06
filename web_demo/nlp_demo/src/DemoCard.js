@@ -1,9 +1,11 @@
+import './index.scss';
+
 import React, { useState } from 'react';
 import franc from 'franc';
 import { iso6393 } from 'iso-639-3'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryTheme, VictoryTooltip } from 'victory';
 
-import Container from "react-bootstrap/Container"
+import Col from "react-bootstrap/Col"
 import Form from 'react-bootstrap/Form';
 
 const DemoCard = () => {
@@ -49,7 +51,7 @@ const DemoCard = () => {
     }
     
     return (
-        <Container>
+        <Col xs={12} lg={{span: 10, offset: 1}}>
             <p className="mb-3 mt-3">This uses the <a rel="noreferrer" target="_blank" href="https://github.com/wooorm/franc/tree/main/packages/franc">Franc language detection javascript library</a>, it can 
             detect 187 languages. It uses a character tri-gram model, to find 
             distances between the given input and pre-computed tri-gram statistics 
@@ -86,7 +88,7 @@ const DemoCard = () => {
                     data={identifiedLanguage} 
                 />
             </VictoryChart>
-        </Container>
+        </Col>
     )
 }
 
