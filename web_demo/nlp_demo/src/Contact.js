@@ -1,10 +1,13 @@
+import './_contact.scss';
+import './index.scss';
+
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 function Contact(){
 
     return(
-        <div className="contacts-div" id="full-width" >
+        <div className="contacts-div extra-width-padding" id="full-width" >
             <Row>
                 <Col md={12} lg={6}>
                     <p className="bold">Related Links:</p>
