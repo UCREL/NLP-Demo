@@ -9,7 +9,7 @@ import { CardLabel, InfoTitle } from './CardUtilities';
 const moreInfoPopover = (
     [<div key="1">
         Example taken from:<br/>
-        <a rel="noreferrer" target="_blank" href="https://www.aclweb.org/anthology/D18-1030.pdf">A Fast, Compact, 
+        <a href="https://www.aclweb.org/anthology/D18-1030.pdf">A Fast, Compact, 
         Accurate Model for Language Identification 
         of Codemixed Text</a> paper. Click the information icon for a link to 
         the paper.
@@ -46,7 +46,7 @@ const CodeMixedCard = (props) => {
                     Methods for this task are expected to output the 
                     language(s) that are within a text, some methods can even output 
                     the language per word, like the method described in this paper 
-                    by Google: <a rel="noreferrer" target="_blank" href="https://www.aclweb.org/anthology/D18-1030.pdf">A 
+                    by Google: <a href="https://www.aclweb.org/anthology/D18-1030.pdf">A 
                     Fast, Compact, Accurate Model for Language Identification of 
                     Codemixed Text</a>.
                 </p>

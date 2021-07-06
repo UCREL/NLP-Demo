@@ -64,11 +64,11 @@ function CurrentResearch (){
             const imageURL = data.imageURL;
             researchSlides.push(
                     <Col key={title}>
-                        <a id="current-research-slider" 
-                           href={webpage} target="_blank" rel="noreferrer">
+                        <a id="current-research-slider" href={webpage} >
                             
                             <Card>
-                                <Card.Img variant="top"  src={imageURL} alt="" width="300" />
+                                <Card.Img variant="top"  src={imageURL} alt="" 
+                                          width="300" />
                                 <Card.Body>
                                     <Card.Title>
                                         {title}

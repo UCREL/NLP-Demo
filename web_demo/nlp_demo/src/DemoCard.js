@@ -52,7 +52,7 @@ const DemoCard = () => {
     
     return (
         <Col xs={12} lg={{span: 10, offset: 1}}>
-            <p className="mb-3 mt-3">This uses the <a rel="noreferrer" target="_blank" href="https://github.com/wooorm/franc/tree/main/packages/franc">Franc language detection javascript library</a>, it can 
+            <p className="mb-3 mt-3">This uses the <a href="https://github.com/wooorm/franc/tree/main/packages/franc">Franc language detection javascript library</a>, it can 
             detect 187 languages. It uses a character tri-gram model, to find 
             distances between the given input and pre-computed tri-gram statistics 
             from the languages. The output is a distance measure rather than a 

@@ -13,7 +13,7 @@ import { InfoTitle } from './CardUtilities';
 
 const moreInfoPopover = (
     [<div key="1">The examples shown here have come from the  
-    paper <a rel="noreferrer" target="_blank" href="https://www.aclweb.org/anthology/C18-1113.pdf">Fine-Grained 
+    paper <a href="https://www.aclweb.org/anthology/C18-1113.pdf">Fine-Grained 
     Arabic Dialect Identification</a>, in this paper they release a 
     new dialect identification datasets covering 25 different arabic 
     dialects each from a different city in the Arab World.</div>]
