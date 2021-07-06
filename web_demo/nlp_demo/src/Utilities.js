@@ -1,3 +1,5 @@
+import './index.scss';
+
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import Popover from 'react-bootstrap/Popover';
@@ -23,7 +25,7 @@ const InfoTitle = (props) => {
             </span>
             <OverlayTrigger trigger="click" placement={props.infoPlacementDirection} 
                             overlay={popover}>
-                <i className="bi bi-info-circle" role="img" 
+                <i className="bi bi-info-circle cursor-pointer" role="img" 
                    aria-label="Information"/>
             </OverlayTrigger>
         </Container>

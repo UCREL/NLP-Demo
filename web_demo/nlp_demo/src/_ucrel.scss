@@ -1,6 +1,16 @@
+@use './include-media' as *;
+
 .ucrel-token {
     background-color: white;
     margin: 0.2rem;
+}
+
+.ucrel-doc {
+    max-width: 100%;
+    @include media ("<tablet") {
+        padding-left: 0.5rem; 
+        padding-right: 0.5rem;
+    }
 }
 
 $names-tags: "Z0", "Z1", "Z2", "Z3", "Z8";

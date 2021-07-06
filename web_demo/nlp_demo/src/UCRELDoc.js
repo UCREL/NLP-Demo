@@ -1,3 +1,6 @@
+import './_flex-styles.scss';
+import './_ucrel.scss';
+
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
@@ -53,7 +56,7 @@ const UCRELDoc = (props) => {
     }
     
     return (
-        <div style={{width: "100%"}}>
+        <div className="ucrel-doc">
                 {sentences}
         </div>
     )

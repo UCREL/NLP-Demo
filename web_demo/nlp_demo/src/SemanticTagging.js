@@ -1,3 +1,8 @@
+import './index.scss';
+import './_ucrel.scss';
+import './_semantic-tagging.scss';
+
+
 import React, { useState, useEffect } from 'react';
 
 import Col from 'react-bootstrap/Col';
@@ -7,13 +12,13 @@ import {getJSONData, LoadObject} from './Utilities';
 
 function KeyBoxes(props) {
     return (
-        <span>
-            <span className="key-icon">
+        <span className="pt-1">
+            <span className="semantic-tagging-key-icon">
                 <svg viewBox="0 0 10 10" id={props._id}>
                     <rect x="0" y="0" width="100%" height="100%"/>
                 </svg>
             </span>
-            <span className="pl-2 key-text">{props._key}</span>
+            <span className="pl-2 semantic-tagging-key-text">{props._key}</span>
         </span>
     )
 }
