@@ -22,7 +22,7 @@ const UCRELToken = (props) => {
     }
     return (
         <OverlayTrigger placement="top" overlay={<Tooltip>{tooltipData}</Tooltip>}>
-            <mark className="ucrel-token shadow-sm" id={_id} >
+            <mark className="ucrel-token shadow" id={_id} >
                 {text}
             </mark>
         </OverlayTrigger>

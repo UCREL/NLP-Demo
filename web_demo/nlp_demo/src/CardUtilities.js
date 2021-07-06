@@ -4,7 +4,6 @@ import './index.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import Button from 'react-bootstrap/Button';
@@ -87,7 +86,7 @@ const CardLabel = (props) => {
                 <Col className="card-label-output-value card-label-col" 
                     sm={8} md={{ span: 7}} >
                     <h4>
-                        <Badge variant="primary">{props.label}</Badge>
+                        {props.label}
                     </h4>
                 </Col>
             </Row>
