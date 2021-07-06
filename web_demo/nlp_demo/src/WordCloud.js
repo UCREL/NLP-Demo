@@ -1,3 +1,5 @@
+import './index.scss';
+
 import React, { useState, useEffect } from 'react';
 import { TagCloud } from 'react-tagcloud'
 import Row from 'react-bootstrap/Row';
