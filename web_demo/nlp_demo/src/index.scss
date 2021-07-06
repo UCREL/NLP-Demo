@@ -1,10 +1,7 @@
 @use './global-colors' as *;
 @use './include-media' as *;
 @use './flex-styles' as *;
-@use './ucrel' as *;
-@use './semantic-tagging' as *;
 @use './current-research' as *;
-@use './title' as *;
 
 /* import only the necessary Bootstrap files */
 @import "bootstrap/scss/functions"; 
@@ -14,9 +11,57 @@
 
 // Reference: 
 // https://www.taniarascia.com/design-for-developers/#use-fewer-fonts-or-be-consistent-with-fonts
+
+// Reference for large screen size optimization:
+// https://css-tricks.com/optimizing-large-scale-displays/
+
+$base-font-size: 1rem;
+
+// Line-Height
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+
 html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+  
+    @include media("<=desktop") {
+        font-size: $base-font-size*1.2;
+        line-height: $base-line-height*1.2;
+    }
+  
+    @include media(">desktop", "<=desktop2k") {
+        font-size: $base-font-size*1.5;
+    }
+  
+    @include media(">desktop2k","<=desktop4k") {
+        font-size: $base-font-size*2;
+    }
+
+    @include media(">desktop4k") {
+        font-size: $base-font-size*2.2;
+    }
+}
+
+h1 {
+    font-size: 2.36rem;
+    @include media("<phone") {
+        font-size: 2.1rem;
+    }
+}
+
+h2 {
+    font-size: 1.77rem;
+    @include media("<phone") {
+        font-size: 1.6rem;
+    }
+}
+
+h3, h4, h5, h6 {
+    font-size: 1.3rem;
+    @include media("<phone") {
+        font-size: 1.2rem;
+    }
 }
 
 * {
@@ -25,8 +70,11 @@ html {
 
 .lead-text-muted {
     color: $muted-text;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 300;
+    @include media("<phone") {
+        font-size: 1.1rem;
+    }
 }
 
 option {
@@ -42,15 +90,25 @@ option {
     color: black !important;
 }
 
-//$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
 
-@include media (">=tablet") {
-    #full-width{
+#full-width{
+    max-width: 100%;
+
+    @include media (">=tablet") {
         max-width: 100%;
         padding-left: 10%; 
         padding-right: 10%;
+        
     }
 }
+
+.current-research {
+    @include media ("<tablet") {
+        padding-left: 1.5rem; 
+        padding-right: 1.5rem;
+    }
+}
+
 
 .alternative-color {
     margin: 0;
@@ -148,6 +206,26 @@ blockquote {
 
 .card-label-output-value h4 {
     margin: auto;
+}
+
+.card-body {
+    padding: 1rem 0rem;
+
+    p {
+        margin: 0;
+    }
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.card-title {
+    margin: 0;
+}
+
+.popover {
+    width: min(276px, 65vw);
 }
 
 .cursor-pointer {

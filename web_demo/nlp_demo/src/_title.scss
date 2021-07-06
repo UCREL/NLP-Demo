@@ -1,36 +1,72 @@
 @use 'flex-styles' as *;
 @use './global-colors' as *;
+@use './include-media' as *;
 
-#qr-code-div {
-    position: absolute;
-    left: 0%;
-    bottom: 0%;
-    height: 25%;
-    width: 100%;
+#title-qr-code-div {
+    
+
+    @include media("<smalldesktop"){
+        width: 100%;
+    }
+    @include media(">=smalldesktop"){
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        height: 25%;
+        width: 100%;
+    }
 }
 
 
-#qr-code-div div {
+#title-qr-code-div div {
     height: 100%;
     background-color: $transparent-white;
 }
 
-#image-background {
-    position: absolute;
-    left: 0%; 
-    bottom: 0%; 
-    height: 90%; 
-    width: 100%;
-    background-color: $title-background;
-    background-image: url(./images/title-image.jpeg);
-    background-size: cover;
+#title-image-background {
+    @include media(">=smalldesktop"){
+        position: absolute;
+        left: 0%; 
+        bottom: 0%; 
+        height: 90%; 
+        width: 100%;
+        background-color: $title-background;
+        background-image: url(./images/title-image.jpeg);
+        background-size: cover;
+    }
 }
 
 #title-div {
-    position: relative;
-    padding: 0;
-    height: 100vh;
-    margin: 0;
+    
+    @include media("<smalldesktop"){
+        min-height: 100%;
+        background-color: $title-background;
+        background-image: url(./images/title-image.jpeg);
+        background-size: cover;
+    }
+    @include media(">=smalldesktop"){
+        position: relative;
+        padding: 0;
+        min-height: 100vh;
+        margin: 0;
+    }
+}
+
+#title-h1{
+    font-size: 3rem;
+    @include media(">=desktop"){
+        font-size: 6rem;
+    }
+    @include media(">=tablet", "<desktop"){
+        font-size: 4rem;
+    }
+    @include media("<tablet"){
+        font-size: 2.5rem;
+    }
+
+    @include media("<phone") {
+        font-size: 2.1rem;
+    }
 }
 
 #title-div header {
@@ -52,17 +88,24 @@
 }
 
 #title-text-div {
-    position: absolute; 
-    left: 0%; 
-    bottom: 25%; 
-    height: 50%; 
-    width: 100%;
+    
+    @include media("<smalldesktop"){
+        margin-top: 15%;
+    }
+    @include media(">=smalldesktop"){
+        position: absolute; 
+        left: 0%; 
+        bottom: 25%; 
+        height: 50%; 
+        width: 100%;
+    }
 }
 
 #title-text-div div {
     background-color: $transparent-white;
 }
 
-#svg-pointer {
+.title-svg {
     cursor: pointer;
+    padding: 0.25rem;
 }

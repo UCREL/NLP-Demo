@@ -1,4 +1,5 @@
-import './index.scss'
+import './index.scss';
+import './_title.scss';
 
 import { useState } from 'react';
 
@@ -12,7 +13,7 @@ import {ReactComponent as UCRELLogo} from './images/ucrel-logo.svg';
 
 const showQRCode = (
 
-    <div id="qr-code-div">
+    <div id="title-qr-code-div">
             <div className="text-center p-1 flex flex-center items-stretch">
                     <h1 className="pr-3 mb-0" style={{"alignSelf": "center"}}>
                         QR code to this website:
@@ -40,23 +41,28 @@ const TitleContainer = () => {
         <Jumbotron id="title-div">
             <header>
                 <div>
-                    <LULogo height="100%"/>
-                    <svg id="svg-pointer" viewBox="0 0 290 283.25" height="100%" x="0px" y="0px" 
-                         preserveAspectRatio="xMidYMid meet" onClick={()=>{setToggleQR(!toggleQR);}}>
+                    <svg viewBox="0 0 420 135" height="100%" x="0px" y="0px" 
+                            preserveAspectRatio="xMidYMid meet" className="title-svg">
+                                <LULogo height="100%"/>
+                    </svg>
+                    
+                    <svg viewBox="0 0 290 283.25" height="100%" x="0px" y="0px" 
+                         preserveAspectRatio="xMidYMid meet" onClick={()=>{setToggleQR(!toggleQR);}}
+                         className="title-svg">
                                 <UCRELLogo/>
                     </svg>
                 </div>
             </header>
 
-            <div id="image-background" >
+            <div id="title-image-background" >
 
             </div>
             <div id="title-text-div" >
                 
                 <Col md={12} lg={{span: 8, offset: 2}} className="text-center">
-                    <h1 className="display-1">What is Natural Language Processing?</h1>
-                    <blockquote className="lead">
-                        <p className="lead">
+                    <h1 id="title-h1">What is Natural Language Processing?</h1>
+                    <blockquote className="lead-text-muted">
+                        <p>
                             It is a field of designing methods and algorithms that take 
                             as input or produce as output unstructured, natural language data.
                         </p>
