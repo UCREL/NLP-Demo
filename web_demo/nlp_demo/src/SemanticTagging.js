@@ -59,6 +59,21 @@ function SemanticTagging() {
         return(<UCRELDoc tokens={ucrelData.tokens} 
                          sentenceIndexes={ucrelData.sentence_indexes}/>)
     }
+
+    let isTouchScreen = false;
+    if ('ontouchstart' in window) {
+        /* 
+        browser with Touch Events running on touch-capable device 
+        Reference: https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
+        */
+       isTouchScreen = true;
+    }
+
+    let tokenInteraction = "Hover over";
+    if (isTouchScreen){
+        tokenInteraction = "Click on";
+    }
+      
     
 
     return(
@@ -70,12 +85,32 @@ function SemanticTagging() {
                         The task of predicting the broad dictionary sense for 
                         each word in a given text.
                     </p>
+                    
                     <hr />
                     <SemanticTagKey/>
                     <hr />
+
+                    <p className="text-center no-margin">
+                        ({tokenInteraction} the words below to see each word's semantic and part of speech tag.)
+                    </p>
+
                 </Col>
             
                 <LoadObject data={ucrelData} onSuccess={ucrelDoc}/>
+
+                <Col xs={12} xl={{span: 8, offset: 2}}>
+                    <hr/>
+                    
+                    <p>
+                        An interactive version of the Semantic Tagger can be found at the  
+                        following <a href="http://ucrel-api.lancaster.ac.uk/usas/tagger.html">link</a>. 
+                    </p>
+                    <p className="no-margin">
+                        All of our interactive tools can be found 
+                        at <a href="http://ucrel-api.lancaster.ac.uk/">http://ucrel-api.lancaster.ac.uk/</a>.
+                    </p>
+
+                </Col>
             </div>
             
         </div>
