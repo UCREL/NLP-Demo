@@ -5,6 +5,8 @@ import { TagCloud } from 'react-tagcloud'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 import { InfoTitle, getJSONData, LoadObject } from './Utilities';
 
@@ -18,7 +20,7 @@ const defaultRenderer = (tag, size, color) => {
         color: `black`,
     };
     const { className, style, ...props } = tag.props || {};
-    const fontSize = tag.fontSize + 'px';
+    const fontSize = tag.fontSize + 'rem';
     const key = tag.key || tag.value;
     const tagStyle = { ...styles, fontSize, ...style };
   
@@ -26,11 +28,19 @@ const defaultRenderer = (tag, size, color) => {
     if (className) {
       tagClassName += ' ' + className;
     }
+
+    const spanToolTip = (
+        <Tooltip>
+            <p style={{margin: 0}}>Tag: {tag.value}</p>
+            <p style={{margin: 0}}>Significance value: {tag.count}</p>
+        </Tooltip>);
     
     return (
-      <span className={tagClassName} style={tagStyle} key={key} {...props}>
-        {tag.value}
-      </span>
+        <OverlayTrigger key={key} placement="bottom" overlay={spanToolTip}>
+            <span className={tagClassName} style={tagStyle} {...props}>
+                {tag.value}
+            </span>
+        </OverlayTrigger>
     )
   }
   
@@ -39,12 +49,14 @@ function Options(props) {
     const minFontSize = props.minimumFontSize;
     const maxFontSize = props.maximumFontSize;
     // Ensures that minimum and maximum have a font size difference of 6
+    const minFontSizeValue = props.minFontSizeValue;
+    const maxFontSizeValue = props.maxFontSizeValue;
     const maxFontSizeOptions = [];
-    for (let i = (minFontSize + 6); i <= 100; i++){
+    for (let i = (minFontSize + 6); i <= maxFontSizeValue; i++){
         maxFontSizeOptions.push(<option value={i} key={i}>{i}</option>);
     }
     const minFontSizeOptions = [];
-    for (let i = 0; i <= (maxFontSize - 6); i++){
+    for (let i = minFontSizeValue; i <= (maxFontSize - 6); i++){
         minFontSizeOptions.push(<option value={i} key={i}>{i}</option>);
     }
 
@@ -126,7 +138,7 @@ function WordCloud() {
     const [wordCloudData, setWordCloudData] = useState({});
     const [numberWords, setNumberWords] = useState(50);
     const [significanceMeasure, setSignificanceMeasure] = useState('Log Likelihood');
-    const [minimumFontSize, setMinimumFontSize] = useState(10);
+    const [minimumFontSize, setMinimumFontSize] = useState(1);
     const [maximumFontSize, setMaximumFontSize] = useState(60);
     
     
@@ -134,7 +146,11 @@ function WordCloud() {
     const [toggleIcon, setToggleIcon] = useState('plus');
     const [toggleSemTags, setToggleSemTags] = useState(false);
     const [dataSource, setDataSource] = useState("/data/thesis_token_statistics.json");
-
+    
+    
+    const minFontSizeValue = 1;
+    const maxFontSizeValue = 100;
+    
 
     function binData(minValue, maxValue, numberBins){
         const minMaxDiff = maxValue - minValue;
@@ -152,6 +168,17 @@ function WordCloud() {
     
     
     useEffect( () => {
+
+        const diffFontSizeValue = maxFontSizeValue - minFontSizeValue;
+        const smallestRemFontSize = 0.5;
+        const largestRemFontSize = 3.5;
+        const diffRemFontSize = largestRemFontSize - smallestRemFontSize;
+        const stepSize = diffRemFontSize / diffFontSizeValue;
+        const fontValues = [];
+        for (let i = smallestRemFontSize; i < largestRemFontSize; i+=stepSize){
+            fontValues.push(i);
+        } 
+        fontValues.push(largestRemFontSize);
 
         function toWordCloudFormat(tagData) {
             let reformatedTagData = [];
@@ -184,7 +211,7 @@ function WordCloud() {
                     else{
                         data.bin = binInterval;
                         const fontSize = binnedFonts[binInterval]; 
-                        data.fontSize = binnedFonts[binInterval];
+                        data.fontSize = fontValues[binnedFonts[binInterval]];
                         // If you do not add a key it will not re-render when 
                         // you change the font size.
                         data.key = data.value + fontSize.toString();
@@ -250,6 +277,8 @@ function WordCloud() {
                                   setMinimumFontSize={setMinimumFontSize}
                                   maximumFontSize={maximumFontSize}
                                   setMaximumFontSize={setMaximumFontSize}
+                                  minFontSizeValue={minFontSizeValue}
+                                  maxFontSizeValue={maxFontSizeValue}
                                   />
                     <hr/>
                     </div>;
