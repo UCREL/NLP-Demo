@@ -14,7 +14,29 @@ Run the following:
 bash generate_usas_example.sh
 ```
 
-This will then output the relevant JSON to: [./usas_example.json](./usas_example.json).
+This will then output the relevant JSON to: [./nlp_demo/public/data/usas_example.json](./nlp_demo/public/data/usas_example.json).
+
+If this file does not exist it will then generate the following message on the Semantic Tagging section of the website:
+
+```
+Error: Example document not in the correct location.
+```
+
+## To Enable caching of static files on the Apache web server
+
+In general this should improve speeds as files are cached.
+
+The following files in the [./nlp_demo/build/static](./nlp_demo/build/static) can be cached for a long time as different file names are generated if any of the content is changed, for more details on this see this [post](https://create-react-app.dev/docs/production-build#static-file-caching).
+
+1. Ensure that the [headers module](https://httpd.apache.org/docs/current/mod/mod_headers.html) is enabled: `sudo a2enmod headers`
+2. Add the following to the `apache2.conf`, which is typically found at `/etc/apache2/apache2.conf`, (this assumes that the NLP demo main `index.html` is at the following location on the web server `/srv/www/html/demo/index.html`):
+``` bash
+<Directory /srv/www/html/demo/static>
+        Header set Cache-Control max-age=31536000
+</Directory>
+```
+3. To activate this cache control you need to restart the apache web server like so: `sudo systemctl restart apache2`
+
 
 ## makefile
 
