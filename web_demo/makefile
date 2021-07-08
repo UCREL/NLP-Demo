@@ -24,4 +24,8 @@ build_app:
 interact_app:
 	@docker-compose up interact-app
 	docker-compose down
+
+profile-and-server-app:
+	@docker-compose up profile-and-serve-built-app
+	docker-compose down
 	

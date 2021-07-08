@@ -13,7 +13,7 @@ services:
       - "$PWD:/app"
 
   run-app:
-    image: node:15.14.0-alpine3.10
+    image: node:15.14.0
     ports: 
       - "127.0.0.1:3000:3000"
     command: ["yarn", "start"]
@@ -34,6 +34,22 @@ services:
     working_dir: "/app/$APP_NAME"
     volumes:
       - "$PWD:/app"
+
+  profile-and-serve-built-app:
+    build: 
+      dockerfile: create_app.dockerfile
+      args:
+          - USER_ID
+          - GROUP_ID
+      context: .
+    image: nlp_demo_create_app:0.0.1
+    command: ["bash", "build_and_serve.sh"]
+    ports: 
+      - "127.0.0.1:5000:5000"
+    working_dir: "/app/$APP_NAME"
+    volumes:
+      - "$PWD:/app"
+
 
   interact-app:
     build: 
