@@ -1,66 +1,68 @@
 version: "3.8"
 services:
   create-app:
-    build: 
-        dockerfile: create_app.dockerfile
-        args:
-            - USER_ID
-            - GROUP_ID
-        context: .
-    image: nlp_demo_create_app:0.0.1
-    command: ["npx", "-y", "create-react-app", "/app/$APP_NAME"]
+    build:
+      dockerfile: dev_app.dockerfile
+      args:
+        - USER_ID
+        - GROUP_ID
+      context: .
+    image: nlp_demo_dev_app:0.0.1
+    command: ["npx", "create-react-app", "/app/$APP_NAME"]
     volumes:
       - "$PWD:/app"
 
   run-app:
-    image: node:15.14.0
+    build:
+      dockerfile: dev_app.dockerfile
+      args:
+        - USER_ID
+        - GROUP_ID
+      context: .
     ports: 
       - "127.0.0.1:3000:3000"
-    command: ["yarn", "start"]
-    user: node
+    image: nlp_demo_dev_app:0.0.1
+    init: true
+    command: ["/bin/sh", "-c", "npm install && yarn start"]
     working_dir: "/app/$APP_NAME"
     volumes:
       - "$PWD:/app"
-
-  build-app:
-    build: 
-      dockerfile: create_app.dockerfile
-      args:
-          - USER_ID
-          - GROUP_ID
-      context: .
-    image: nlp_demo_create_app:0.0.1
-    command: ["yarn", "build"]
-    working_dir: "/app/$APP_NAME"
-    volumes:
-      - "$PWD:/app"
-
-  profile-and-serve-built-app:
-    build: 
-      dockerfile: create_app.dockerfile
-      args:
-          - USER_ID
-          - GROUP_ID
-      context: .
-    image: nlp_demo_create_app:0.0.1
-    command: ["bash", "build_and_serve.sh"]
-    ports: 
-      - "127.0.0.1:5000:5000"
-    working_dir: "/app/$APP_NAME"
-    volumes:
-      - "$PWD:/app"
-
 
   interact-app:
     build: 
-      dockerfile: create_app.dockerfile
+      dockerfile: dev_app.dockerfile
       args:
           - USER_ID
           - GROUP_ID
       context: .
-    image: nlp_demo_create_app:0.0.1
+    image: nlp_demo_dev_app:0.0.1
     command: ${cmd}
     working_dir: "/app/$APP_NAME"
+    volumes:
+      - "$PWD:/app"
+
+  profile-serve-built-app:
+    build: 
+      dockerfile: build.dockerfile
+      context: .
+    image: nlp_demo_build_app:0.0.1
+    ports: 
+      - "127.0.0.1:5000:5000"
+    environment:
+      PUBLIC_URL: "/"
+    init: true
+    command: ["npx", "serve", "-s", "build"]
+
+  production-build-app:
+    build: 
+      dockerfile: build.dockerfile
+      args:
+          - USER_ID
+          - GROUP_ID
+      context: .
+    image: nlp_demo_build_app:0.0.1
+    environment:
+      PUBLIC_URL: "https://ucrel-web.lancs.ac.uk/demo"
     volumes:
       - "$PWD:/app"
 
