@@ -33,3 +33,4 @@ jobs:
         run: |
           cd ./web_demo/nlp_demo
           ls -al build
+          ls -al build/static
