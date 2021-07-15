@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd ./web_demo/nlp_demo
-          npm ci
+          npm install
       - name: build
         run: |
           cd ./web_demo/nlp_demo
@@ -33,4 +33,3 @@ jobs:
         run: |
           cd ./web_demo/nlp_demo
           ls -al build
-          ls -al build/static
