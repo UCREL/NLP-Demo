@@ -26,5 +26,11 @@ jobs:
         run: |
           cd ./web_demo/nlp_demo
           npm ci
+      - name: build
+        run: |
+          cd ./web_demo/nlp_demo
+          yarn build
       - name: test
-        run: ls -al
+        run: |
+          cd ./web_demo/nlp_demo
+          ls -al
