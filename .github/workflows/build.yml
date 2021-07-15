@@ -18,10 +18,9 @@ jobs:
       - name: Cache npm packages
         uses: actions/cache@v2
         with:
-          path: ~/.npm
+          path: ./web_demo/nlp_demo/node_modules
           key: ${{ runner.os }}-${{ hashFiles('./web_demo/nlp_demo/package-lock.json') }}
           restore-keys: ${{ runner.os }}-
-
       - name: Install Dependencies
         run: |
           cd ./web_demo/nlp_demo
@@ -33,4 +32,4 @@ jobs:
       - name: test
         run: |
           cd ./web_demo/nlp_demo
-          ls -al
+          ls -al build
