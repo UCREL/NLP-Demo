@@ -55,14 +55,16 @@ services:
 
   production-build-app:
     build: 
-      dockerfile: build.dockerfile
+      dockerfile: build-save.dockerfile
       args:
           - USER_ID
           - GROUP_ID
       context: .
-    image: nlp_demo_build_app:0.0.1
+    image: nlp_demo_build_save_app:0.0.1
+    working_dir: "/app/$APP_NAME"
+    command: ["yarn", "build"]
     environment:
-      PUBLIC_URL: "https://ucrel-web.lancs.ac.uk/demo"
+      PUBLIC_URL: "/demo"
     volumes:
       - "$PWD:/app"
 
